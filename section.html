@@ -63,9 +63,6 @@
           await fetch('https://trello-hill-chart.herokuapp.com/scopes/status', {
             method: 'POST',
             mode: 'no-cors',
-            headers: {
-              'Content-Type': 'multipart/form-data',
-            },
             body: reqBody
           })
         });

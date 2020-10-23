@@ -54,16 +54,18 @@
         t.card('all').then(async function(card) {
           console.log('card', card)
           console.log('card.id', card.id)
+
+          const reqBody = new FormData();
+          formData.append('trello_card_id', card.id);
+          formData.append('progress', mouseX);
+
           await fetch('https://trello-hill-chart.herokuapp.com/scopes/status', {
             method: 'POST',
             mode: 'no-cors',
             headers: {
-              'Content-Type': 'application/json',
+              'Content-Type': 'multipart/form-data',
             },
-            body: JSON.stringify({
-              trello_card_id: card.id,
-              progress: mouseX
-            })
+            body: reqBody
           })
         });
       }

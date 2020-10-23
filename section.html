@@ -54,6 +54,7 @@
         t.card('all').then(async function(card) {
           await fetch('https://trello-hill-chart.herokuapp.com/scopes/status', {
             method: 'POST',
+            mode: 'no-cors',
             body: JSON.stringify({
               trello_card_id: card.id,
               progress: mouseX

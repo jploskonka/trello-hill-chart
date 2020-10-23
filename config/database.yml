@@ -1,0 +1,12 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+
+development:
+  <<: *default
+  pool: 2
+  database: trello_hill_chart_dev
+
+production:
+  pool: 5
+  host: <%= ENV['DATABASE_URL'] %>

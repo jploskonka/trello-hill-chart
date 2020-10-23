@@ -12,33 +12,41 @@
       const WIDTH = 300;
       const HEIGHT = 200;
 
+      let currentStep = 0;
+      let x, y;
+
+      let x1 = 0,
+        x2 = WIDTH/2-WIDTH/6,
+        x3 = WIDTH/2+WIDTH/6,
+        x4 = WIDTH;
+
+      let y1 = HEIGHT,
+        y2 = HEIGHT/3,
+        y3 = HEIGHT/3,
+        y4 = HEIGHT;
+
       function setup() {
         createCanvas(WIDTH, HEIGHT);
-        // background(255, 204, 0)
-        noFill();
+      }
+
+      function draw() {
+        background("white");
         stroke("gray");
+        noFill();
         line(WIDTH/2, 0, WIDTH/2, HEIGHT);
 
         stroke("black");
-        let x1 = 0,
-          x2 = WIDTH/2-WIDTH/6,
-          x3 = WIDTH/2+WIDTH/6,
-          x4 = WIDTH;
-
-        let y1 = HEIGHT,
-          y2 = HEIGHT/3,
-          y3 = HEIGHT/3,
-          y4 = HEIGHT;
-
-        bezier(x1, y1, x2, y2, x3, y3, x4, y4);
-
-        let steps = 10;
-        let currentStep = 2; //TODO: This will change as progress changes
-        fill("aquamarine");
+        let steps = WIDTH;
         let t = currentStep/steps;
-        let x = bezierPoint(x1, x2, x3, x4, t);
-        let y = bezierPoint(y1, y2, y3, y4, t);
+        bezier(x1, y1, x2, y2, x3, y3, x4, y4);
+        x = bezierPoint(x1, x2, x3, x4, t);
+        y = bezierPoint(y1, y2, y3, y4, t);
+        fill("aquamarine");
         circle(x, y, 10);
+      }
+
+      function mouseClicked() {
+        currentStep = mouseX;
       }
     </script>
   </body>

@@ -57,6 +57,9 @@
           await fetch('https://trello-hill-chart.herokuapp.com/scopes/status', {
             method: 'POST',
             mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/json',
+            },
             body: JSON.stringify({
               trello_card_id: card.id,
               progress: mouseX

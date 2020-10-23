@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
   </head>
   <body>
@@ -9,6 +10,8 @@
     </main>
 
     <script type="text/javascript">
+      const t = window.TrelloPowerUp.iframe();
+
       const WIDTH = 300;
       const HEIGHT = 200;
 
@@ -42,11 +45,13 @@
         x = bezierPoint(x1, x2, x3, x4, t);
         y = bezierPoint(y1, y2, y3, y4, t);
         fill("aquamarine");
-        circle(x, y, 10);
+        circle(x, y, 15);
       }
 
       function mouseClicked() {
         currentStep = mouseX;
+        console.log('mouseClicked', mouseX)
+        t.card('all').then(function(card) { console.log(card) })
       }
     </script>
   </body>

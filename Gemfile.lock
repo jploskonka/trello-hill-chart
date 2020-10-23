@@ -43,6 +43,7 @@ PLATFORMS
 
 DEPENDENCIES
   pg
+  rack
   rake
   sinatra
   sinatra-activerecord

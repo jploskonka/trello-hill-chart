@@ -52,6 +52,8 @@
         currentStep = mouseX;
 
         t.card('all').then(async function(card) {
+          console.log('card', card)
+          console.log('card.id', card.id)
           await fetch('https://trello-hill-chart.herokuapp.com/scopes/status', {
             method: 'POST',
             mode: 'no-cors',

@@ -13,7 +13,7 @@ end
 class App < Sinatra::Application
   get "/scopes/:trello_card_id" do
     scope = Scope.find_by(trello_card_id: params["trello_card_id"])
-    json progress: scope.statuses.last.progress
+    json progress: scope.statuses.last&.progress
   end
 
   post "/scopes/status" do # trello_card_id

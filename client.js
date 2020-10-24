@@ -3,7 +3,7 @@ const GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-
 window.TrelloPowerUp.initialize({
   'card-back-section': function(t, options) {
     return {
-      title: 'Test section',
+      title: 'Scope progress',
       icon: GRAY_ICON,
       content: {
         type: 'iframe',

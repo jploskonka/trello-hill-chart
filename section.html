@@ -48,12 +48,7 @@
         background("white");
         stroke("gray");
         noFill();
-        line(WIDTH/2, HEIGHT/2, WIDTH/2, HEIGHT);
-
-        textSize(18);
-        textAlign(CENTER, CENTER);
-        fill("black")
-        text("figuring things out", 0, HEIGHT, WIDTH/2, HEIGHT+FOOTER_HEIGHT);
+        line(WIDTH/2, HEIGHT/2, WIDTH/2, HEIGHT + FOOTER_HEIGHT);
 
         noFill();
         stroke("black");
@@ -65,6 +60,12 @@
         fill("aquamarine");
         circle(x, y, 15);
 
+        textSize(15);
+        fill("gray");
+        textAlign(CENTER, CENTER);
+        textStyle("italic")
+        text("figuring things out", 0, HEIGHT, WIDTH/2, FOOTER_HEIGHT);
+        text("making it happen", WIDTH/2, HEIGHT, WIDTH/2, FOOTER_HEIGHT);
       }
 
       function mouseClicked() {

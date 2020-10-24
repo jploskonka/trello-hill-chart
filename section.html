@@ -27,7 +27,7 @@
       let currentStep;
       let x, y;
 
-      const scopeJson;
+      let scopeJson;
 
       function preload() {
         scopeJson = loadJSON(`https://trello-hill-chart.herokuapp.com/scopes/${t.getContext().card}`, 'jsonp');

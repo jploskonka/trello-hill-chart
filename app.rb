@@ -12,8 +12,11 @@ end
 
 class App < Sinatra::Application
   get "/scopes/:trello_card_id" do
-    scope = Scope.find_by(trello_card_id: params["trello_card_id"])
-    jsonp progress: scope.statuses.last&.progress
+    if scope = Scope.find_by(trello_card_id: params["trello_card_id"])
+      jsonp progress: scope.statuses.last&.progress
+    else
+      jsonp progress: 0
+    end
   end
 
   post "/scopes/status" do # trello_card_id

@@ -48,6 +48,7 @@
           y4 = HEIGHT;
 
         currentStep = scopeJson.progress || 0;
+        currentStep = currentStep / 100 * WIDTH;
         createCanvas(windowWidth, windowHeight);
       }
 

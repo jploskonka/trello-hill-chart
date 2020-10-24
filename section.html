@@ -27,10 +27,10 @@
       let currentStep;
       let x, y;
 
-      function preload() {
-        const scopeJson = loadJSON(`https://trello-hill-chart.herokuapp.com/scopes/${t.getContext().card}`, 'jsonp');
+      const scopeJson;
 
-        currentStep = scopeJson['progress'] || 0;
+      function preload() {
+        scopeJson = loadJSON(`https://trello-hill-chart.herokuapp.com/scopes/${t.getContext().card}`, 'jsonp');
       }
 
       function setup() {
@@ -47,6 +47,7 @@
           y3 = HEIGHT/3,
           y4 = HEIGHT;
 
+        currentStep = scopeJson.progress || 0;
         createCanvas(windowWidth, windowHeight);
       }
 

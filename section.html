@@ -72,13 +72,10 @@
         currentStep = mouseX;
 
         t.card('all').then(async function(card) {
-          console.log('card', card)
-          console.log('card.id', card.id)
-
           const reqBody = new FormData();
 
           reqBody.append('trello_card_id', card.id);
-          reqBody.append('progress', mouseX);
+          reqBody.append('progress', mouseX/WIDTH * 100);
 
           await fetch('https://trello-hill-chart.herokuapp.com/scopes/status', {
             method: 'POST',

@@ -22,13 +22,14 @@
       const t = window.TrelloPowerUp.iframe();
 
       let WIDTH, HEIGHT, x1, x2, x3, x4, y1, y2, y3, y4;
+      const FOOTER_HEIGHT = 50;
 
       let currentStep = 0;
       let x, y;
 
       function setup() {
         WIDTH = windowWidth;
-        HEIGHT = windowHeight;
+        HEIGHT = windowHeight - FOOTER_HEIGHT;
 
         x1 = 0,
           x2 = WIDTH/2-WIDTH/6,
@@ -49,6 +50,12 @@
         noFill();
         line(WIDTH/2, HEIGHT/2, WIDTH/2, HEIGHT);
 
+        textSize(18);
+        textAlign(CENTER, CENTER);
+        fill("black")
+        text("figuring things out", 0, HEIGHT, WIDTH/2, HEIGHT+FOOTER_HEIGHT);
+
+        noFill();
         stroke("black");
         let steps = WIDTH;
         let t = currentStep/steps;
@@ -57,6 +64,7 @@
         y = bezierPoint(y1, y2, y3, y4, t);
         fill("aquamarine");
         circle(x, y, 15);
+
       }
 
       function mouseClicked() {

@@ -28,7 +28,10 @@
       let x, y;
 
       function preload() {
-        currentStep = loadJSON(`https://trello-hill-chart.herokuapp.com/scopes/${t.getContext().card}`, 'jsonp').progress || 0;
+        const scopeJson = loadJSON(`https://trello-hill-chart.herokuapp.com/scopes/${t.getContext().card}`, 'jsonp');
+
+        console.log(scopeJson)
+        currentStep = scopeJson.progress || 0;
       }
 
       function setup() {

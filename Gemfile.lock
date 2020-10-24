@@ -41,6 +41,9 @@ GEM
       rack-protection (= 2.1.0)
       sinatra (= 2.1.0)
       tilt (~> 2.0)
+    sinatra-jsonp (0.5.0)
+      multi_json (~> 1.8)
+      sinatra (>= 1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
     tzinfo (1.2.7)
@@ -58,6 +61,7 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sinatra-contrib
+  sinatra-jsonp
 
 RUBY VERSION
    ruby 2.7.2p137

@@ -11,7 +11,8 @@ class Scope::Status < ActiveRecord::Base
 end
 
 class App < Sinatra::Application
-  set :protection, except: [:json_csrf]
+  set :protection, except: [:json_csrf, :http_origin]
+
   get "/scopes/:trello_card_id" do
     if scope = Scope.find_by(trello_card_id: params["trello_card_id"])
       json progress: scope.statuses.last&.progress

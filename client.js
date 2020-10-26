@@ -11,5 +11,15 @@ window.TrelloPowerUp.initialize({
         height: 250
       }
     }
+  },
+  'card-badges': function(t, options) {
+    return t.card('id')
+      .get('id')
+      .then(function(cardId) {
+        console.log('card loaded with cardId: ', cardId);
+        return [{
+          text: 'Test badge'
+        }]
+      })
   }
 });

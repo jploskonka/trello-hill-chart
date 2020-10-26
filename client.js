@@ -16,10 +16,22 @@ window.TrelloPowerUp.initialize({
     return t.card('id')
       .get('id')
       .then(function(cardId) {
-        console.log('card loaded with cardId: ', cardId);
-        return [{
-          text: 'Test badge'
-        }]
+        return fetch(`https://trello-hill-chart.herokuapp.com/scopes/${cardId}`)
+          .then(function(response) {
+            console.log('parsing response')
+            return response.json();
+          })
+          .then(function(response) {
+            console.log('response received!', cardId, response, response.progress)
+            const text = response.progress < 10 ? 'warming up'
+              : response.progress >= 10 && response.progress < 50 ? 'figuring out'
+              : response.progress >= 50 && response.progress < 90 ? 'making it'
+              : 'almost there'
+
+            return [{
+              text: text
+            }]
+          })
       })
   }
 });

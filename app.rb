@@ -11,7 +11,7 @@ class Scope::Status < ActiveRecord::Base
 end
 
 class App < Sinatra::Application
-  set :protection, except: [:json_csrf, :http_origin]
+  disable :protection
 
   get "/scopes/:trello_card_id" do
     if scope = Scope.find_by(trello_card_id: params["trello_card_id"])

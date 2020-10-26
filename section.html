@@ -30,7 +30,7 @@
       let scopeJson;
 
       function preload() {
-        scopeJson = loadJSON(`https://trello-hill-chart.herokuapp.com/scopes/${t.getContext().card}`, 'jsonp');
+        scopeJson = loadJSON(`https://trello-hill-chart.herokuapp.com/scopes/${t.getContext().card}`);
       }
 
       function setup() {

@@ -20,8 +20,8 @@ window.TrelloPowerUp.initialize({
           .then(function(response) { return response.json(); })
           .then(function(response) {
             const text = response.progress < 10 ? 'warming up'
-              : response.progress >= 10 && response.progress < 50 ? 'unknown'
-              : response.progress >= 50 && response.progress < 90 ? 'known'
+              : response.progress >= 10 && response.progress < 50 ? 'uncertain'
+              : response.progress >= 50 && response.progress < 90 ? 'certain'
               : response.progress < 96 ? 'almost there' : 'done'
 
             const color = response.progress < 10 ? 'gray'

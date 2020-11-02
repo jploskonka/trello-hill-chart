@@ -11,3 +11,9 @@ gem "sinatra-cross_origin"
 gem "pg"
 gem "rake"
 gem "sinatra-activerecord"
+
+group :test do
+  gem "rspec"
+  gem "rack-test"
+  gem "database_cleaner-active_record"
+end

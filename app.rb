@@ -20,6 +20,16 @@ class App < Sinatra::Application
     response.headers['Access-Control-Allow-Origin'] = "*"
   end
 
+  get "/scopes" do
+    if params["trello_card_ids"].is_a?(Array)
+      status 200
+      json Scope.where(trello_card_id: params["trello_card_ids"])
+    else
+      status 400
+      json errors: { trello_card_ids: "must be an array" }
+    end
+  end
+
   get "/scopes/:trello_card_id" do
     if scope = Scope.find_by(trello_card_id: params["trello_card_id"])
       json progress: scope.statuses.last&.progress

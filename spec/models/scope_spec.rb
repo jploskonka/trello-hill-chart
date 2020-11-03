@@ -1,6 +1,6 @@
 RSpec.describe Scope do
   it "generates random color when created" do
-    allow(SecureRandom).to receive(:hex).and_return("123123")
+    allow(SecureRandom).to receive(:hex).with(3).and_return("123123")
 
     scope = Scope.create(trello_card_id: "foo")
 

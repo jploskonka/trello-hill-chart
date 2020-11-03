@@ -6,7 +6,7 @@ class Scope < ActiveRecord::Base
   private
 
   def set_random_color
-    self.color = "##{SecureRandom.hex(6)}"
+    self.color = "##{SecureRandom.hex(3)}"
   end
 end
 

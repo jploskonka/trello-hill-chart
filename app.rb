@@ -3,9 +3,7 @@ require 'sinatra/activerecord'
 require "sinatra/json"
 require "sinatra/cross_origin"
 
-class Scope < ActiveRecord::Base
-  has_many :statuses, class_name: "Scope::Status"
-end
+require_relative "models/scope"
 
 class Scope::Status < ActiveRecord::Base
   belongs_to :scope
